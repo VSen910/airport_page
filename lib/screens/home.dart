@@ -44,108 +44,110 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 8.0),
-                child: ImageInfoWidget(),
-              ),
-              const Chips(
-                options: ['Transport', 'Terminal', 'Forex', 'Contact info'],
-                borderRadius: 30,
-                fontSize: 12,
-              ),
-              const TaxiService(),
-              const SizedBox(height: 20),
-              const PublicTransport(),
-              const SizedBox(height: 20),
-              const SelfParking(),
-              const SizedBox(height: 20),
-              const TerminalMap(),
-              const SizedBox(height: 20),
-              const Forex(),
-              const SizedBox(height: 20),
-              const ContactAirport(),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Getting directions'),
-                            ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.primary,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)
-                          ),
-                        ),
-                        icon: SvgPicture.asset(
-                          'assets/icons/directions_white.svg',
-                          height: 25,
-                        ),
-                        label: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16.0),
-                          child: Text(
-                            'Get directions',
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 3),
-                    Expanded(
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Calling the airport'),
-                            ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.primary,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                          ),
-                        ),
-                        icon: const Icon(
-                          Icons.phone,
-                          color: Colors.white,
-                          size: 25,
-                        ),
-                        label: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16.0),
-                          child: Text(
-                            'Call airport',
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: ImageInfoWidget(),
                 ),
-              )
-            ],
+                const Chips(
+                  options: ['Transport', 'Terminal', 'Forex', 'Contact info'],
+                  borderRadius: 30,
+                  fontSize: 12,
+                ),
+                const TaxiService(),
+                const SizedBox(height: 20),
+                const PublicTransport(),
+                const SizedBox(height: 20),
+                const SelfParking(),
+                const SizedBox(height: 20),
+                const TerminalMap(),
+                const SizedBox(height: 20),
+                const Forex(),
+                const SizedBox(height: 20),
+                const ContactAirport(),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Getting directions'),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.primary,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)
+                            ),
+                          ),
+                          icon: SvgPicture.asset(
+                            'assets/icons/directions_white.svg',
+                            height: 25,
+                          ),
+                          label: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 16.0),
+                            child: Text(
+                              'Get directions',
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 3),
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Calling the airport'),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.primary,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)
+                            ),
+                          ),
+                          icon: const Icon(
+                            Icons.phone,
+                            color: Colors.white,
+                            size: 25,
+                          ),
+                          label: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 16.0),
+                            child: Text(
+                              'Call airport',
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
