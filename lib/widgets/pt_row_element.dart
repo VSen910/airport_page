@@ -18,56 +18,52 @@ class PTRowElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('You will be taking a $travelMode'),
+      onTap: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('You will be taking a $travelMode'),
+          ),
+        );
+      },
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SvgPicture.asset(
+              iconPath,
+              width: 20,
             ),
-          );
-        },
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SvgPicture.asset(
-                iconPath,
-                width: 20,
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              travelMode,
+              style: TextStyle(fontSize: 16.sp),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(
-                travelMode,
-                style: TextStyle(fontSize: 16.sp),
-              ),
+          ),
+          Expanded(child: Container()),
+          Text(
+            time,
+            style: TextStyle(
+              fontSize: 11.sp,
+              color: AppColors.secondaryText,
             ),
-            Expanded(child: Container()),
-            Text(
-              time,
-              style: TextStyle(
-                fontSize: 11.sp,
-                color: AppColors.secondaryText,
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: Icon(
+              Icons.arrow_forward_rounded,
+              color: AppColors.primary,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Icon(
-                Icons.arrow_forward_rounded,
-                color: AppColors.primary,
-              ),
-            ),
-            // IconButton(
-            //   onPressed: () {},
-            //   icon: Icon(
-            //     Icons.arrow_forward_rounded,
-            //     color: AppColors.primary,
-            //   ),
-            // ),
-          ],
-        ),
+          ),
+          // IconButton(
+          //   onPressed: () {},
+          //   icon: Icon(
+          //     Icons.arrow_forward_rounded,
+          //     color: AppColors.primary,
+          //   ),
+          // ),
+        ],
       ),
     );
   }

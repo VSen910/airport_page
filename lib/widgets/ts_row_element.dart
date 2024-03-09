@@ -26,79 +26,75 @@ class TSRowElement extends StatelessWidget {
           ),
         ),
         child: InkWell(
-          onTap: () {},
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    'You are taking a ${isLuxury ? 'luxury' : 'normal'} taxi',
-                  ),
+          onTap: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  'You are taking a ${isLuxury ? 'luxury' : 'normal'} taxi',
                 ),
-              );
-            },
-            child: Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                if (isLuxury)
-                  Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.primary,
-                      borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(4),
-                        bottomLeft: Radius.circular(4),
+              ),
+            );
+          },
+          child: Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              if (isLuxury)
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.primary,
+                    borderRadius: const BorderRadius.only(
+                      bottomRight: Radius.circular(4),
+                      bottomLeft: Radius.circular(4),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 2.0,
+                      horizontal: 4.0,
+                    ),
+                    child: Text(
+                      'Luxury',
+                      style: TextStyle(
+                        color: AppColors.luxuryText,
+                        fontSize: 10.sp,
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 2.0,
-                        horizontal: 4.0,
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 50,
+                      width: 76,
+                      child: Image.asset(
+                        iconPath,
+                        fit: BoxFit.scaleDown,
                       ),
-                      child: Text(
-                        'Luxury',
+                    ),
+                    RichText(
+                      text: TextSpan(
+                        text: '\$' * numDollarSigns,
                         style: TextStyle(
-                          color: AppColors.luxuryText,
-                          fontSize: 10.sp,
+                          color: AppColors.secondaryText,
+                          fontSize: 11.sp,
                         ),
+                        children: [
+                          TextSpan(
+                            text: '\$' * (5 - numDollarSigns),
+                            style: TextStyle(
+                              color: const Color(0xffdcdcdc),
+                              fontSize: 11.sp,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 50,
-                        width: 76,
-                        child: Image.asset(
-                          iconPath,
-                          fit: BoxFit.scaleDown,
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: '\$' * numDollarSigns,
-                          style: TextStyle(
-                            color: AppColors.secondaryText,
-                            fontSize: 11.sp,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: '\$' * (5 - numDollarSigns),
-                              style: TextStyle(
-                                color: const Color(0xffdcdcdc),
-                                fontSize: 11.sp,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
