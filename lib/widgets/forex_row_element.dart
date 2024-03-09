@@ -22,7 +22,7 @@ class _ForexRowElementState extends State<ForexRowElement> {
         widget.title,
         style: TextStyle(fontSize: 14.sp),
       ),
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         side: BorderSide(
           color: Colors.transparent,
         ),
